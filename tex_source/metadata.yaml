@@ -1,10 +1,7 @@
-# test.yaml
-figure-prefix: Fig
-table-prefix: Tab
-equation-prefix: Eq
-number-reset-level: 2
+figure-prefix: 图
+table-prefix: 表
+equation-prefix: 式
+number-reset-level: 1
 non-arabic-numbers: true
 section-format-source-1: "第{h1_zh}章"
-section-format-source-2: "Section {h1}.{h2}."
-section-format-ref-1: "Chapter {h1}"
-section-format-ref-2: "第{h1}.{h2}节"
+section-format-ref-1: "第{h1_zh}章"

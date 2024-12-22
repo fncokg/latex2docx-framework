@@ -1,4 +1,4 @@
-# latex2docx文档转换
+# LaTeX到docx文档转换
 
 这是一个把LaTeX转换成docx的工作框架，框架核心是基于pandoc和pandoc-tex-numbering这个filter完成，但pandoc对LaTeX和docx的支持都不够完善，所以需要使用这个框架来完成转换前后一些额外的处理。
 

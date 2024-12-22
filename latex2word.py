@@ -32,7 +32,7 @@ def main(input_file, output_file, metadata_file):
     
     logger.info('Start pandoc conversion')
     filter_args = [cmd for filter in PANDOC_FILTERS for cmd in ["-F", filter]]
-    subprocess.run(['pandoc','--metadata-file',metadata_file,*filter_args,*PANDOC_ARGS,"-o",output_file, tmp_texfile])
+    subprocess.run(['pandoc','--metadata-file',metadata_file,*filter_args,*PANDOC_ARGS,"-o",tmp_docxfile, tmp_texfile])
 
     logger.info('Start writing docx file')
     writer(tmp_docxfile,output_file)

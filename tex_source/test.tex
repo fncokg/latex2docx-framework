@@ -16,7 +16,7 @@
 \title{pandoc-tex-numbering Test Document}
 \begin{document}
 \maketitle
-\section{Introduction}
+\section{引言}[Introduction]
 This document is created to test the pandoc numbering functions for equations, figures, and tables. \Cref{sec:equations} (cref) and \cref{sec:figures_tables} (cref) provide examples of equations, figures, and tables.
 
 \section{Equations}
@@ -56,9 +56,9 @@ Here is a single line equation:
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{./example-image}
-    \caption{Example Image}
-    % \bicaption{Dutch}{English}
-    \label{fig:example}
+    % \caption{Example Image}
+    \bicaption[fig:example]{}{肿瘤组织中各个子种群的进化示意图}{Fig.$\!$}{The diagram of tumor subpopulation evolution process}
+    % \label{fig:example}
 \end{figure}
 
 \subsection{Tables}
@@ -74,8 +74,9 @@ Here is a single line equation:
         Data 4 & Data 5 & Data 6 \\
         \hline
     \end{tabular}
-    \caption{Example Table}
-    \label{tab:example}
+    % \caption{Example Table}
+    % \label{tab:example}
+    \longbionenumcaption{}{{\wuhao 中国省级行政单位一览}\label{tab:example}}{Table$\!$}{}{{\wuhao Overview of the provincial administrative unit of China}}{-0.5em}{3.15bp}
 \end{table}
 
 \begin{table}[H]

@@ -13,11 +13,11 @@
 ```bash
 pip install panflute pylatexenc
 ```
-1. 下载本项目
-2. 把你的全部LaTeX源文件拷贝到`tex_source`目录下
-3. 把要转换的`tex`文件或LaTeX项目的主文件重命名为`main.tex`
-4. 运行`latex2docx.bat`
-5. 转换后的docx文件会出现在与`latex2docx.bat`同级目录的下，名字是`main.docx`
+4. 下载本项目
+5. 把你的全部LaTeX源文件拷贝到`tex_source`目录下
+6. 把要转换的`tex`文件或LaTeX项目的主文件重命名为`main.tex`
+7. 运行`latex2docx.bat`
+8. 转换后的docx文件会出现在与`latex2docx.bat`同级目录的下，名字是`main.docx`
 
 # 进阶使用
 

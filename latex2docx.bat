@@ -1,0 +1,1 @@
+conda activate base & python latex2word.py -I tex_source/main.tex -O main.docx & pause

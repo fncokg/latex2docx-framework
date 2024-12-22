@@ -44,7 +44,7 @@ def main(input_file, output_file, metadata_file):
     
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Convert latex to word')
-    parser.add_argument('-I', '--input', type=str, help='The tex file to be converted',default='tex_source/test.tex')
+    parser.add_argument('-I', '--input', type=str, help='The tex file to be converted',default='tex_source/main.tex')
     parser.add_argument('-M', '--metadata', type=str, help='The metadata file',default='tex_source/metadata.yaml')
     parser.add_argument('-O', '--output', type=str, help='The output file',default='')
     args = parser.parse_args()

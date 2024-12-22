@@ -32,7 +32,7 @@ def reader_replace_macros(macros):
             repl_pairs.append((macro, repl_str))
     return repl_pairs
 
-def reader(input_file):
+def reader(input_file:str)->str:
     with open(input_file, 'r') as f:
         tex = f.read()
     # Test string: \subsection{本硕论文题注}[Other picture example]
@@ -46,6 +46,5 @@ def reader(input_file):
         tex = tex.replace(string, repl)
     return tex
 
-def writer(tmp_docxfile, output_file):
+def writer(tmp_docxfile:str, output_file:str)->None:
     shutil.copy(tmp_docxfile, output_file)
-    return output_file

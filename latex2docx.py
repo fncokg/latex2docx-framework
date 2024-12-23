@@ -41,6 +41,9 @@ def main(input_file, output_file, metadata_file,project_dir):
         files_queue = [tmp_texfile]
         while files_queue:
             file = files_queue.pop(0)
+            if not file.exists():
+                logger.warning(f"Imported file {file} does not exist, skipped")
+                continue
             with file.open("r") as f:
                 tex = f.read()
             imported_files = get_latex_imported_files(tex)

@@ -31,11 +31,12 @@ pip install panflute pylatexenc
 - `--input`或`-I`：指定输入的LaTeX文件，默认是`tex_source/main.tex`
 - `--output`或`-O`：指定输出的docx文件，默认是`input`同目录下，后缀改为`.docx`
 - `--metadata`或`-M`：pandoc转换的metadata文件，默认是`tex_source/metadata.yaml`
+- `--project`或`-P`：指定LaTeX项目的根目录，默认是`tex_source`。当此参数为空时，仅处理单个目标文件，否则处理整个项目。**当文件中使用了`input`等命令引入其他文件时，必须使用此参数。**
 
 因此你可以在命令行运行：
 
 ```bash
-python latex2docx.py -I tex_source/main.tex -O output.docx -M tex_source/metadata.yaml
+python latex2docx.py -I tex_source/main.tex -O output.docx -M tex_source/metadata.yaml -P tex_source
 ```
 
 来完成转换
@@ -51,7 +52,7 @@ python latex2docx.py -I tex_source/main.tex -O output.docx -M tex_source/metadat
 ```mermaid
 flowchart LR
     A([LaTeX]) --> B{Python Reader}
-    B --> C[Temp Tex File]
+    B --> C[Temp Tex File / Project]
     C --> D("`pandoc
     pandoc-tex-numbering`")
     D --> E[Temp Docx File]
@@ -59,7 +60,7 @@ flowchart LR
     F --> G([Docx])
 ```
 
-简单来说，本框架先读取原始LaTeX文件，允许你对LaTeX文件做任何转换时修改，之后调用pandoc转换，转换之后允许你对docx做任何修改，最后输出docx文件。期间产生的任何临时文件都会被删除，从而不对原始文件造成任何影响。
+简单来说，本框架先读取原始LaTeX（入口）文件，并循环读取所有被（循环）引入的文件，允许你对所有LaTeX文件做任何转换时修改，之后调用pandoc转换，转换之后允许你对docx做任何修改，最后输出docx文件。期间产生的任何临时文件都会被删除，从而不对原始文件造成任何影响。
 
 ## 自定义reader和writer
 
@@ -67,9 +68,9 @@ flowchart LR
 
 **注意：当前的`reader`和`writer`函数是一个针对`hithesis`的示例。**
 
-`reader(input_file:str)->str`函数接受一个LaTeX文件的路径，你需要自己读取这个文件，做任何你想做的修改，然后返回一个字符串，这个字符串是修改后的LaTeX文件的内容。推荐基于`re`和`pylatexenc`来完成。
+`reader(tex:str)->str`函数接受一个LaTeX文件的完整内容，你可以直接对它进行任何你想做的修改，然后返回一个字符串，这个字符串是修改后的LaTeX文件的内容。推荐基于`re`和`pylatexenc`来完成。
 
-`writer(tmp_docxfile:str, output_file:str)->None`函数接受一个临时docx文件的路径和一个输出docx文件的路径，你需要自己读取这个临时docx文件，做任何你想做的修改，然后保存到输出docx文件。推荐基于`python-docx`来完成。
+`writer(tmp_docxfile:str, output_file:str)->None`函数接受一个临时docx文件的路径和一个输出docx文件的路径（这样你就可以用任何你喜欢的方法读取并保存这个docx文件），你需要自己读取这个临时docx文件，做任何你想做的修改，然后保存到输出docx文件。推荐基于`python-docx`来完成。
 
 ## 自定义pandoc参数
 

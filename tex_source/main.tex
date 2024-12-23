@@ -49,54 +49,9 @@ Here is a single line equation:
 % TODO: You can also refer to equations at once like: \cref{eq:quadratic,eq:align1,eq:align2,eq:einstein}.
 
 \section{Figures and Tables\label{sec:figures_tables}}
-
-\subsection{Figures}
-\Cref{fig:example} (cref) shows an example image.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{./example-image}
-    % \caption{Example Image}
-    \bicaption[fig:example]{}{肿瘤组织中各个子种群的进化示意图}{Fig.$\!$}{The diagram of tumor subpopulation evolution process}
-    % \label{fig:example}
-\end{figure}
-
-\subsection{Tables}
-\Cref{tab:example} (cref) shows an example table.
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|}
-        \hline
-        Column 1 & Column 2 & Column 3 \\
-        \hline
-        Data 1 & Data 2 & Data 3 \\
-        Data 4 & Data 5 & Data 6 \\
-        \hline
-    \end{tabular}
-    % \caption{Example Table}
-    % \label{tab:example}
-    \longbionenumcaption{}{{\wuhao 中国省级行政单位一览}\label{tab:example}}{Table$\!$}{}{{\wuhao Overview of the provincial administrative unit of China}}{-0.5em}{3.15bp}
-\end{table}
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{|c|c|c|}
-        \hline
-        Column 1 & Column 2 & Column 3 \\
-        \hline
-        Data 1 & Data 2 & Data 3 \\
-        Data 4 & Data 5 & Data 6 \\
-        \hline
-    \end{tabular}
-    \caption{Example Table without Label}
-    % \label{tab:example}
-\end{table}
-
-\subsection{References to Figures and Tables}
-\Cref{fig:example} (cref) is an example image. Table \ref{tab:example} (ref) is an example table. 
+\input{sections/fig_tab.tex}
 
 \section{Conclusion}
-This document includes examples of multiline equations, single line equations, figures, and tables with labels and references to test the pandoc numbering functions. For more details, see \cref{sec:equations} (cref) and \cref{sec:figures_tables} (cref).
+\input{sections/conclusion.tex}
 
 \end{document}

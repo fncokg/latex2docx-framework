@@ -32,9 +32,7 @@ def reader_replace_macros(macros):
             repl_pairs.append((macro, repl_str))
     return repl_pairs
 
-def reader(input_file:str)->str:
-    with open(input_file, 'r') as f:
-        tex = f.read()
+def reader(tex:str)->str:
     # Test string: \subsection{本硕论文题注}[Other picture example]
     tex = re.sub(r'\\(chapter|section|subsection|subsubsection)\{(.*?)\}\[(.*?)\]', r'\\\1{\2}', tex)
 
